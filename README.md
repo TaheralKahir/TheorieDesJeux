@@ -1,6 +1,6 @@
 # Théorie des Jeux:
 
-## Le jeu des pousses 🌳 - Étude mathématique et implémentation.
+## 1 - Le jeu des pousses 🌳 - Étude mathématique et implémentation.
 
 ### 🗒️ Les règles : 
 
