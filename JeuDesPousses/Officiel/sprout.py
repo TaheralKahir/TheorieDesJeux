@@ -1,6 +1,6 @@
 import networkx as nx 
 import matplotlib.pyplot as plt
-
+import time
 
 #Le graphe qui est définit en global !
 graph = nx.Graph()
@@ -14,33 +14,63 @@ def ajout_point():
         else:
             for i in range(nodes):
                 graph.add_node(i)
-                on = 0
-                print("Les points ont été ajoutés !")
-            
-#def verify():
+                print(f"Le point {i} a été ajouté !")
+            on = 0
+    return nodes
+
+def verify(node):
+    if graph.degree(node) > 2:
+        return False
+    return True
+
+def verify_all(nodes):
+    compteur = 0
+    for i in range(nodes):
+        if verify(i) is False:
+            compteur += 1
+    if compteur == nodes:
+        return False
+
+def jeu(i):
+    on = 1
+    print(f"Joueur {i}")
+    print("Choisit les points à relier :")
+    while on == 1: 
+        choix_1 = int(input("le premier :"))
+        if verify(choix_1) is False:
+            print(f"{choix_1} est full, choisis-en un autre !")
+        else:
+            on = 0
+    on = 1
+    while on == 1:
+        choix_2 = int(input("le deuxième :"))
+        if verify(choix_2) is False:
+            print(f"{choix_2} est full, choisis-en un autre !")
+        else:
+            on = 0
+    graph.add_edge(choix_1, choix_2)
+    afficher()
+        
 
 def afficher():
     nx.draw(graph, with_labels=True)
-    plt.show()
+    plt.show(block=False)
 
 def main():
     on = 1
-    ajout_point()
+    nodes = ajout_point()
     while on == 1 :
-        print("Joueur 1")
-        print("Choisit les points à relier :")
-        choix_1 = int(input("le premier :"))
-        choix_2 = int(input("le deuxième :"))
-        graph.add_edge(choix_1, choix_2)
-        afficher()
-        print("Joueur 2")
-        print("Choisit les points à relier :")
-        choix_1 = int(input("le premier :"))
-        choix_2 = int(input("le deuxième :"))
-        graph.add_edge(choix_1, choix_2)
-        afficher()
-        on = 0
-
+        jeu(1)
+        if verify_all(nodes) == False:
+            print("Joueur 1 a gagné !!!")
+        time.sleep(10)
+        plt.close()
+        jeu(2)
+        if verify_all(nodes) == False:
+            print("Joueur 2 a gagné !!!")
+        time.sleep(10)
+        plt.close()
+        
 print(main())
 
 
