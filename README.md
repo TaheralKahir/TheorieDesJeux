@@ -14,7 +14,7 @@
 
 --> Sur chaque trait on ajoute un point.
 
---> Chaque point n'a le droit d'avoir que 3 chemins qui en sortent (⚠️ Une boucle compte pour deux arêtes).
+--> Chaque point n'a le droit d'avoir que 3 chemins qui en sortent (⚠️ Une boucle compte pour deux arêtes ⚠️).
 
 --> Le dernier joueur à pouvoir jouer gagne !
 
@@ -27,8 +27,16 @@
 
 ### 🎯 Mes objectifs : 
 
---> Analyser puis formaliser le problème et les découvertes récentes à son sujet. 
+1 - Un programme Python qui permet un affrontement entre deux joueurs, un affrontement entre joueur et une IA plutôt basique puis une version qui génère des parties optimisées.
 
---> Un programme Python qui permet un affrontement entre deux joueurs, un affrontement entre joueur et une IA plutôt basique puis une version qui génère des parties optimisées.
+2 - Analyser puis formaliser le problème, les découvertes récentes à son sujet et un résumé de ce que moi j'ai fait avec un fichier LaTeX.
 
 --> (Bonus) Regardez ce qui se passerait pour des variantes de ce même jeu.
+
+### 📝 Pour la prochaine fois 📝:
+
+--> Trouvez un moyen pour que ça enregistre le graphe à chaque modification.
+
+--> Implémenter une interface graphique avec Tkinter.
+
+--> Ajout d'un historique (idée: avec un dictionnaire qui enregistre des couples de point et le joueur.)
