@@ -6,6 +6,7 @@ import time
 graph = nx.Graph()
 
 def ajout_point():
+    global graph
     on = 1
     nodes = int(input("Nombres de points:"))
     while on == 1:
@@ -19,11 +20,13 @@ def ajout_point():
     return nodes
 
 def verify(node):
+    global graph
     if graph.degree(node) > 2:
         return False
     return True
 
 def verify_all(nodes):
+    global graph
     compteur = 0
     for i in range(nodes):
         if verify(i) is False:
@@ -32,6 +35,7 @@ def verify_all(nodes):
         return False
 
 def jeu(i):
+    global graph
     on = 1
     print(f"Joueur {i}")
     print("Choisit les points à relier :")
@@ -53,21 +57,25 @@ def jeu(i):
         
 
 def afficher():
+    global graph
     nx.draw(graph, with_labels=True)
     plt.show(block=False)
 
 def main():
+    global graph
     on = 1
     nodes = ajout_point()
     while on == 1 :
         jeu(1)
         if verify_all(nodes) == False:
             print("Joueur 1 a gagné !!!")
+            on = 0
         time.sleep(10)
         plt.close()
         jeu(2)
         if verify_all(nodes) == False:
             print("Joueur 2 a gagné !!!")
+            on = 0 
         time.sleep(10)
         plt.close()
         
