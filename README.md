@@ -35,8 +35,6 @@
 
 ### 📝 Pour la prochaine fois 📝:
 
---> Trouvez un moyen pour que ça enregistre le graphe à chaque modification.
-
 --> Implémenter une interface graphique avec Tkinter.
 
 --> Ajout d'un historique (idée: avec un dictionnaire qui enregistre des couples de point et le joueur.)
