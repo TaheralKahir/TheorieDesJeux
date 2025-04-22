@@ -34,7 +34,7 @@ def verify_all(nodes):
     if compteur == nodes:
         return False
 
-def jeu(i, nodes, increment):
+def jeu(i):
     global graph
     on = 1
     print(f"Joueur {i}")
@@ -52,10 +52,7 @@ def jeu(i, nodes, increment):
             print(f"{choix_2} est full, choisis-en un autre !")
         else:
             on = 0
-    name = nodes + increment
-    graph.add_node(name)
-    graph.add_edge(choix_1, name)
-    graph.add_edge(name, choix_2)
+    graph.add_edge(choix_1, choix_2)
     afficher()
         
 
@@ -64,34 +61,24 @@ def afficher():
     nx.draw(graph, with_labels=True)
     plt.show(block=False)
 
-def afficher_point(nodes, increment):
-    global graph
-    number_of_nodes = nodes + increment
-    for i in range(number_of_nodes + 1):
-        print(f"Le point {i} est d'ordre {graph.degree(i)}.")
-
 def main():
     global graph
     on = 1
     nodes = ajout_point()
-    increment = 0
     while on == 1 :
-        jeu(1, nodes, increment)
+        jeu(1)
         if verify_all(nodes) == False:
             print("Joueur 1 a gagné !!!")
             on = 0
         time.sleep(10)
         plt.close()
-        afficher_point(nodes, increment)
-        increment += 1
-        jeu(2, nodes, increment)
+        jeu(2)
         if verify_all(nodes) == False:
             print("Joueur 2 a gagné !!!")
             on = 0 
         time.sleep(10)
         plt.close()
-        afficher_point(nodes, increment)
-        increment += 1
+        
 print(main())
 
 
